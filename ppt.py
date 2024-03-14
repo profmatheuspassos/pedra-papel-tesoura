@@ -21,6 +21,7 @@ def placar():
     print("\n")
 
 def placarFinal():
+    cabecalho()
     print("PLACAR FINAL:")
     print(f"Você: {pontosVoce}")
     print(f"Computador: {pontosComp}\n")
@@ -71,7 +72,8 @@ while True:
         lanceComp = random.randint(1,3)
         jogada(lanceVoce, lanceComp)
         try:
-            sair = int(input("Você quer sair ou jogar novamente? 1 - SAIR | 2 - JOGAR NOVAMENTE"))
+            print("Você quer sair ou jogar novamente? 1 - SAIR | 2 - JOGAR NOVAMENTE")
+            sair = int(input("Digite o número da sua opção: "))
             if sair == 1:
                 placarFinal()
                 break
@@ -85,11 +87,6 @@ while True:
         except:
             erroOpcoes()
             continue
-        # CHAMAR FUNÇÃO JOGADA COM DOIS PARÂMETROS (jogadaVoce e jogadaComp)
-        # ATUALIZAR PLACAR
-        # CHAMAR MENU DE JOGAR NOVAMENTE - Sim ou Não
-        # Se sair mostra o placar final
-        break
     except:
         print("Insira apenas o número da opção (1, 2 ou 3). Tente novamente.")
         print("Voltando ao menu inicial...")
