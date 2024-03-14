@@ -4,9 +4,9 @@ import random
 
 pontosVoce = 0
 pontosComp = 0
+nomesJogadas = {1: "Papel", 2: "Pedra", 3: "Tesoura"}
 
 def cabecalho():
-    # Limpa a tela de forma segura para a maioria dos ambientes
     os.system("cls" if os.name == "nt" else "clear")
     print("==============================================")
     print("Bem-vindo(a) ao jogo \"Pedra, Papel ou Tesoura\"")
@@ -33,27 +33,31 @@ def placarFinal():
     os.system("cls" if os.name == "nt" else "clear")
 
 def erroOpcoes():
-    print("Insira apenas o número 1 ou 2.")
+    print("Insira apenas o número 1, 2 ou 3.")
     print("Voltando ao menu inicial...")
     time.sleep(3)
 
 def opcoes():
     print("Opções: 1 - Papel | 2 - Pedra | 3 - Tesoura")
 
-def verificaVencedor(lanceVoce, lanceComp):
-    if (lanceVoce == 1 and lanceComp == 2) or (lanceVoce == 2 and lanceComp == 3) or (lanceVoce == 3 and lanceComp == 1):
+def verificaVencedor(nomeJogadaVoce, nomeJogadaComp):
+    if (nomeJogadaVoce == "Papel" and nomeJogadaComp == "Pedra") or \
+       (nomeJogadaVoce == "Pedra" and nomeJogadaComp == "Tesoura") or \
+       (nomeJogadaVoce == "Tesoura" and nomeJogadaComp == "Papel"):
         return "voce"
-    elif lanceVoce == lanceComp:
+    elif nomeJogadaVoce == nomeJogadaComp:
         return "empate"
     else:
         return "comp"
 
 def jogada(opcaoVoce, opcaoComp):
     global pontosVoce, pontosComp
-    resultado = verificaVencedor(opcaoVoce, opcaoComp)
+    nomeJogadaVoce = nomesJogadas[opcaoVoce]
+    nomeJogadaComp = nomesJogadas[opcaoComp]
+    resultado = verificaVencedor(nomeJogadaVoce, nomeJogadaComp)
     print("==================")
-    print(f"Sua jogada: {opcaoVoce}")
-    print(f"Jogada do computador: {opcaoComp}")
+    print(f"Sua jogada: {nomeJogadaVoce}")
+    print(f"Jogada do computador: {nomeJogadaComp}")
     if resultado == "voce":
         print("Você venceu!")
         pontosVoce += 1
