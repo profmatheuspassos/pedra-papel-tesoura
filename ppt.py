@@ -1,5 +1,6 @@
 import os
 import time
+import random
 
 pontosVoce = 0
 pontosComp = 0
@@ -35,11 +36,14 @@ while True:
     placar()
     opcoes()
     try:
-        lance = int(input("Escolha seu lance: "))
+        lanceVoce = int(input("Escolha seu lance: "))
+        lanceComp = random.randint(1,3)
+        print(lanceComp)
         # CHAMAR FUNÇÃO JOGADA COM DOIS PARÂMETROS (jogadaVoce e jogadaComp)
         # ATUALIZAR PLACAR
         # CHAMAR MENU DE JOGAR NOVAMENTE - Sim ou Não
-        print(lance)
+        # Se sair mostra o placar final
+        print(lanceVoce)
         break
     except:
         print("Insira apenas o número da opção (1, 2 ou 3). Tente novamente.")
