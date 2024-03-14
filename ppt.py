@@ -23,7 +23,13 @@ def placar():
 def placarFinal():
     print("PLACAR FINAL:")
     print(f"Você: {pontosVoce}")
-    print(f"Computador: {pontosComp}")
+    print(f"Computador: {pontosComp}\n")
+    if pontosComp > pontosVoce:
+        print("O computador venceu!")
+    elif pontosComp < pontosVoce:
+        print("Você venceu!")
+    else:
+        print("Deu empate!")
     print("\n")
     print("Até a próxima!")
     time.sleep(3)
@@ -38,6 +44,7 @@ def opcoes():
     print("Opções: 1 - Papel | 2 - Pedra | 3 - Tesoura")
 
 def jogada(opcaoVoce, opcaoComp):
+    global pontosVoce, pontosComp
     print("==================")
     print(f"Sua jogada: {opcaoVoce}")
     print(f"Jogada do computador: {opcaoComp}")
@@ -51,8 +58,8 @@ def jogada(opcaoVoce, opcaoComp):
         print("Empate!")
         pontosComp += 1
         pontosVoce += 1
-    # FAZER A CONTA - lembrar que pode ter empate
-    # indicar quem venceu
+    print("Pontuação atual:")
+    print(f"Você: {pontosVoce} - Computador: {pontosComp}")
     print("==================")
 
 while True:
