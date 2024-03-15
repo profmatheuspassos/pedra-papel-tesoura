@@ -37,9 +37,6 @@ def erroOpcoes():
     print("Voltando ao menu inicial...")
     time.sleep(3)
 
-def opcoes():
-    print("Opções: 1 - Papel | 2 - Pedra | 3 - Tesoura")
-
 def verificaVencedor(nomeJogadaVoce, nomeJogadaComp):
     if (nomeJogadaVoce == "Papel" and nomeJogadaComp == "Pedra") or \
        (nomeJogadaVoce == "Pedra" and nomeJogadaComp == "Tesoura") or \
@@ -72,30 +69,26 @@ def jogada(opcaoVoce, opcaoComp):
 while True:
     cabecalho()
     placar()
-    opcoes()
+    print("Opções: 1 - Papel | 2 - Pedra | 3 - Tesoura")
     try:
         lanceVoce = int(input("\nEscolha seu lance (1, 2 ou 3): "))
         if lanceVoce not in [1, 2, 3]:
             raise ValueError("Opção inválida.")
         lanceComp = random.randint(1,3)
         jogada(lanceVoce, lanceComp)
-
-        sairOpcaoValida = False
-        while not sairOpcaoValida:
-            try:
-                print("Você quer sair ou jogar novamente? 1 - SAIR | 2 - JOGAR NOVAMENTE")
-                sair = int(input("Digite o número da sua opção: "))
-                if sair == 1:
-                    placarFinal()
-                    break
-                elif sair == 2:
-                    print("Voltando ao menu inicial...")
-                    time.sleep(3)
-                    sairOpcaoValida = True
-                else:
-                    raise ValueError("Opção inválida.")
-            except ValueError:
+        try:
+            print("Você quer sair ou jogar novamente? 1 - SAIR | 2 - JOGAR NOVAMENTE")
+            sair = int(input("Digite o número da sua opção: "))
+            if sair == 1:
+                placarFinal()
+                break
+            elif sair == 2:
+                print("Voltando ao menu inicial...")
+                time.sleep(3)
+                continue
+            else:
                 erroOpcoes()
+                continue
     except ValueError:
         print("Insira apenas o número da opção (1, 2 ou 3). Tente novamente.")
         time.sleep(3)
