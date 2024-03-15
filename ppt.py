@@ -87,8 +87,14 @@ while True:
                 time.sleep(3)
                 continue
             else:
-                erroOpcoes()
+                print("Insira apenas o número da opção (1 ou 2). Tente novamente.")
+                print("Voltando ao menu inicial...")
+                time.sleep(3)
                 continue
-    except ValueError:
+        except:
+            erroOpcoes()
+            continue
+    except:
         print("Insira apenas o número da opção (1, 2 ou 3). Tente novamente.")
         time.sleep(3)
+        continue
