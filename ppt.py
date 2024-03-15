@@ -87,7 +87,7 @@ while True:
                 sair = int(input("Digite o número da sua opção: "))
                 if sair == 1:
                     placarFinal()
-                    sairOpcaoValida = True
+                    break
                 elif sair == 2:
                     print("Voltando ao menu inicial...")
                     time.sleep(3)
